@@ -1,11 +1,3 @@
-import React from 'react';
-
-function App() {
-    return (
-        <div>
-<h1>App</h1>
-        </div>
-    );
-}
+import App from './app';
 
 export default App;

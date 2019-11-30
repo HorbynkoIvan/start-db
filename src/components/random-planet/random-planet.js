@@ -19,7 +19,7 @@ class RandomPlanet extends Component {
   }
 
   updatePlanet() {
-    const id = Math.floor(Math.random()*25)+2;
+    const id = Math.floor(Math.random() * 25) + 2;
     this.swapi.getPlanet(id).then(planet => {
       this.setState({
         id,

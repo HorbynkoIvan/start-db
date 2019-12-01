@@ -7,7 +7,7 @@ import PersonDetails from '../person-details';
 
 function App() {
   return (
-    <div>
+    <div className="container-fluid">
       <Header />
       <RandomPlanet />
       <div className="row mb-2">

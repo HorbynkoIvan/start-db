@@ -7,6 +7,7 @@ import PlanetView from './planet-view';
 class RandomPlanet extends Component {
   state = {
     planet: {},
+    loading: true,
   };
 
   swapi = new SwapiService();
@@ -16,7 +17,7 @@ class RandomPlanet extends Component {
     this.updatePlanet();
   }
 
-  onLoadPlanet = planet => this.setState({ planet });
+  onLoadPlanet = planet => this.setState({ planet, loading: false });
 
   updatePlanet() {
     const id = Math.floor(Math.random() * 25) + 2;
@@ -24,10 +25,10 @@ class RandomPlanet extends Component {
   }
 
   render() {
-    const { planet } = this.state;
+    const { planet, loading } = this.state;
     return (
       <div className="random-planet jumbotron rounded">
-        <PlanetView planet={planet} />
+        {loading ? <Spinner /> : <PlanetView planet={planet} />}
       </div>
     );
   }

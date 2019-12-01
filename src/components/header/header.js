@@ -7,7 +7,7 @@ function Header() {
       <a className="navbar-brand logo" href="#">
         Star DB
       </a>
-      <div className="collapse navbar-collapse justify-content-center" id="navbarColor02">
+      <div className="collapse navbar-collapse justify-content-center">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="#">

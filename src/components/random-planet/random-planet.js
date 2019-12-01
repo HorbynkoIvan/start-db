@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './random-planet.css';
+import './random-planet.scss';
 import SwapiService from '../../services';
 import Spinner from '../spinner';
 import PlanetView from './planet-view';
@@ -27,7 +27,7 @@ class RandomPlanet extends Component {
   render() {
     const { planet, loading } = this.state;
     return (
-      <div className="random-planet jumbotron rounded">
+      <div className="random-planet jumbotron rounded d-flex">
         {loading ? <Spinner /> : <PlanetView planet={planet} />}
       </div>
     );

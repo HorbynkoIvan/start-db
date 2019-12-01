@@ -44,6 +44,7 @@ export default class SwapiService {
   }
 
   _extractId(item) {
+    debugger
     const idRegExp = /\/([0-9]*)\/$/;
     return item.url.match(idRegExp)[1];
   }
@@ -85,13 +86,13 @@ export default class SwapiService {
 
 const swapi = new SwapiService();
 
-swapi.getAllPeople().then(people => {
+/*swapi.getAllPeople().then(people => {
   people.forEach(person => console.log(person.name));
 });
 
 swapi.getPerson(3).then(person => {
   console.log(person.name);
-});
+});*/
 
 /* 2)
 const getResource = async url => {

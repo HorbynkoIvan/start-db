@@ -24,7 +24,7 @@ class RandomPlanet extends Component {
   onError = err => this.setState({ error: true, loading: false });
 
   updatePlanet() {
-    const id = Math.floor(Math.random() * 25) + 2;
+    const id = Math.floor(Math.random() * 25) + 20000;
     this.swapi
       .getPlanet(id)
       .then(this.onLoadPlanet)

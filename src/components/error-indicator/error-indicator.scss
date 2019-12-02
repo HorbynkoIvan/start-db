@@ -1,0 +1,16 @@
+.error-indicator{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  .error-text_block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ff9f1d;
+    span{
+      font-size: 24px;
+      line-height: 1.5;
+    }
+  }
+}

@@ -14,16 +14,16 @@ class RandomPlanet extends Component {
 
   swapi = new SwapiService();
 
-  constructor() {
-    super();
-    this.updatePlanet();
+  componentDidMount() {
+    const interval = setInterval(this.updatePlanet, 5000);
+    //clearInterval(interval);
   }
 
   onLoadPlanet = planet => this.setState({ planet, loading: false });
 
   onError = err => this.setState({ error: true, loading: false });
 
-  updatePlanet() {
+  updatePlanet=() =>{
     const id = Math.floor(Math.random() * 25) + 1;
     this.swapi
       .getPlanet(id)

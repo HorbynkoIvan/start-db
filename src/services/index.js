@@ -43,55 +43,49 @@ export default class SwapiService {
     return this._transformStarship(starShip);
   }
 
-  _extractId(item) {
+  _extractId = item => {
     const idRegExp = /\/([0-9]*)\/$/;
     return item.url.match(idRegExp)[1];
-  }
+  };
 
-  _transformPlanet(planet) {
-    return {
-      id: this._extractId(planet),
-      name: planet.name,
-      population: planet.population,
-      rotationPeriod: planet.rotation_period,
-      diameter: planet.diameter,
-    };
-  }
+  _transformPlanet = planet => ({
+    id: this._extractId(planet),
+    name: planet.name,
+    population: planet.population,
+    rotationPeriod: planet.rotation_period,
+    diameter: planet.diameter,
+  });
 
-  _transformStarship(starShip) {
-    return {
-      id: this._extractId(starShip),
-      name: starShip.name,
-      model: starShip.model,
-      manufacturer: starShip.manufacturer,
-      costInCredits: starShip.costInCredits,
-      length: starShip.length,
-      crew: starShip.crew,
-      passengers: starShip.passengers,
-      cargoCapacity: starShip.cargoCapacity,
-    };
-  }
+  _transformStarship = starShip => ({
+    id: this._extractId(starShip),
+    name: starShip.name,
+    model: starShip.model,
+    manufacturer: starShip.manufacturer,
+    costInCredits: starShip.costInCredits,
+    length: starShip.length,
+    crew: starShip.crew,
+    passengers: starShip.passengers,
+    cargoCapacity: starShip.cargoCapacity,
+  });
 
-  _transformPerson(person) {
-    return {
-      id: this._extractId(person),
-      name: person.name,
-      gender: person.gender,
-      birthYear: person.birthYear,
-      eyeColor: person.eyeColor,
-    };
-  }
+  _transformPerson = person => ({
+    id: this._extractId(person),
+    name: person.name,
+    gender: person.gender,
+    birthYear: person.birthYear,
+    eyeColor: person.eyeColor,
+  });
 }
 
 const swapi = new SwapiService();
 
-/*swapi.getAllPeople().then(people => {
+/* swapi.getAllPeople().then(people => {
   people.forEach(person => console.log(person.name));
 });
 
 swapi.getPerson(3).then(person => {
   console.log(person.name);
-});*/
+}); */
 
 /* 2)
 const getResource = async url => {

@@ -7,19 +7,19 @@ import PersonDetails from '../person-details';
 
 class App extends Component {
   state = {
-    showRandomPlanet: true,
     selectedPerson: null,
   };
 
   componentDidMount() {}
 
-  onPersonSelected(id) {
+  onPersonSelected = id => {
     this.setState({
       selectedPerson: id,
     });
-  }
+  };
 
   render() {
+    const { selectedPerson } = this.state;
     return (
       <div className="container">
         <Header />
@@ -29,7 +29,7 @@ class App extends Component {
             <ItemList onItemSelected={this.onPersonSelected} />
           </div>
           <div className="col-md-6">
-            <PersonDetails personId={this.state.selectedPerson} />
+            <PersonDetails personId={selectedPerson} />
           </div>
         </div>
       </div>

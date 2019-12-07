@@ -17,7 +17,7 @@ class ItemList extends Component {
   renderItems(arr) {
     return arr.map(({ id, name }) => (
       <li
-        className="list-group-item"
+        className="list-group-item list-group-item-action"
         key={id}
         onClick={() => this.props.onItemSelected(id)}
       >

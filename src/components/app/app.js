@@ -7,7 +7,7 @@ import PersonDetails from '../person-details';
 
 class App extends Component {
   state = {
-    selectedPerson: null,
+    selectedPerson: 5,
   };
 
   componentDidMount() {}

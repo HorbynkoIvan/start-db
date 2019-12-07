@@ -11,6 +11,12 @@ class PersonDetails extends Component {
     this.updatePerson();
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.personId !== this.props.personId) {
+      this.updatePerson();
+    }
+  }
+
   updatePerson = () => {
     const { personId } = this.props;
     if (!personId) return;

@@ -1,0 +1,14 @@
+.person-details{
+  flex-direction: row;
+  .person-image{
+    display: block;
+    max-width: 200px;
+    width: 100%;
+  }
+  .list-group-item{
+    display: flex;
+    span{
+      flex: 1;
+    }
+  }
+}

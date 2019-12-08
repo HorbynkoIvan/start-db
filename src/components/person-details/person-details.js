@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './person-details.css';
+import './person-details.scss';
 import SwapiService from '../../services';
 
 class PersonDetails extends Component {
@@ -29,18 +29,18 @@ class PersonDetails extends Component {
     if (!person) return <span>Select a person from the list</span>;
     const { id, name, gender, birthYear, eyeColor } = person;
     return (
-      <div className="person-details card">
-        <img
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-          className="person-image"
-          alt="..."
-        />
+      <div className="person-details card p-3 d-flex">
+          <img
+            src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+            className="person-image card-img-left rounded mr-2"
+            alt="..."
+          />
         <div className="card-body">
-          <h4>{name}</h4>
+          <h4 className='card-title'>{name}</h4>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
-              <span className="term">{gender}</span>
-              <span>male</span>
+              <span className="term">Gender</span>
+              <span>{gender}</span>
             </li>
             <li className="list-group-item">
               <span className="term">Birth Year</span>

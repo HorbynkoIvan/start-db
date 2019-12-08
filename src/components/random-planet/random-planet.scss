@@ -2,8 +2,17 @@
   min-height: 528px;
   .card{
     border: none;
+    min-width: 400px;
     .card-header{
       background: none;
+    }
+    .card-body{
+      .list-group-item{
+        display: flex;
+        span{
+          flex: 1;
+        }
+      }
     }
   }
 }

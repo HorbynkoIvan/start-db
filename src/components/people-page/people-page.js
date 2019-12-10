@@ -12,12 +12,28 @@ const Row = ({ left, right }) => (
   </div>
 );
 
+class ErrorBoundry extends Component {
+  state = {
+    hasError: false,
+  };
+
+  componentDidCatch(error, errorInfo) {
+    this.setState({
+      hasError: true,
+    });
+  }
+
+  render() {
+    if (this.state.hasError) return <ErrorIndicator />;
+    return this.props.children;
+  }
+}
+
 class PeoplePage extends Component {
   swapi = new SwapiService();
 
   state = {
     selectedPerson: 5,
-    hasError: false,
   };
 
   onPersonSelected = id => {
@@ -40,7 +56,11 @@ class PeoplePage extends Component {
 
     const personalDetails = <PersonDetails personId={selectedPerson} />;
 
-    return <Row left={itemList} right={personalDetails} />;
+    return (
+      <ErrorBoundry>
+        <Row left={itemList} right={personalDetails} />
+      </ErrorBoundry>
+    );
   }
 }
 

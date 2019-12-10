@@ -30,13 +30,13 @@ class PersonDetails extends Component {
     const { id, name, gender, birthYear, eyeColor } = person;
     return (
       <div className="person-details card p-3 d-flex">
-          <img
-            src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-            className="person-image card-img-left rounded mr-2"
-            alt="..."
-          />
+        <img
+          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+          className="person-image card-img-left rounded mr-2"
+          alt="..."
+        />
         <div className="card-body">
-          <h4 className='card-title'>{name}</h4>
+          <h4 className="card-title">{name}</h4>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
               <span className="term">Gender</span>

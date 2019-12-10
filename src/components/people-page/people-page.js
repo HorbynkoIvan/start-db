@@ -26,8 +26,10 @@ class PeoplePage extends Component {
       <div className="row mb-2">
         <div className="col-md-6">
           <ItemList
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapi.getAllPeople}
+            onItemSelected={this.onPersonSelected}
+            getData={this.swapi.getAllPeople}
+            renderItem={item =>
+              `${item.name} (${item.gender}, ${item.birthYear})`}
           />
         </div>
         <div className="col-md-6">

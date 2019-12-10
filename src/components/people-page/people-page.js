@@ -5,6 +5,13 @@ import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 import ErrorIndicator from '../error-indicator';
 
+const Row = ({ left, right }) => (
+  <div className="row mb-2">
+    <div className="col-md-6">{left}</div>
+    <div className="col-md-6">{right}</div>
+  </div>
+);
+
 class PeoplePage extends Component {
   swapi = new SwapiService();
 
@@ -22,21 +29,18 @@ class PeoplePage extends Component {
   render() {
     const { selectedPerson, hasError } = this.state;
     if (hasError) return <ErrorIndicator />;
-    return (
-      <div className="row mb-2">
-        <div className="col-md-6">
-          <ItemList
-            onItemSelected={this.onPersonSelected}
-            getData={this.swapi.getAllPeople}
-            renderItem={item =>
-              `${item.name} (${item.gender}, ${item.birthYear})`}
-          />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails personId={selectedPerson} />
-        </div>
-      </div>
+
+    const itemList = (
+      <ItemList
+        onItemSelected={this.onPersonSelected}
+        getData={this.swapi.getAllPeople}
+        renderItem={item => `${item.name} (${item.gender}, ${item.birthYear})`}
+      />
     );
+
+    const personalDetails = <PersonDetails personId={selectedPerson} />;
+
+    return <Row left={itemList} right={personalDetails} />;
   }
 }
 

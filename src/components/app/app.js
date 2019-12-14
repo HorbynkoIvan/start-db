@@ -25,34 +25,10 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
-        <RandomPlanet />
-        <PeoplePage />
+        {/*<RandomPlanet />
+        <PeoplePage />*/}
 
-        <div className="row mb-2">
-          <div className="col-md-6">
-            <ItemList
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapi.getAllPlanets}
-              renderItem={item => item.name}
-            />
-          </div>
-          <div className="col-md-6">
-            <ItemDetails personId={selectedPerson} />
-          </div>
-        </div>
 
-        <div className="row mb-2">
-          <div className="col-md-6">
-            <ItemList
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapi.getAllStarShips}
-              renderItem={item => item.name}
-            />
-          </div>
-          <div className="col-md-6">
-            <ItemDetails personId={selectedPerson} />
-          </div>
-        </div>
       </div>
     );
   }

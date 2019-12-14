@@ -4,13 +4,7 @@ import SwapiService from '../../services';
 import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import ErrorIndicator from '../error-indicator';
-
-const Row = ({ left, right }) => (
-  <div className="row mb-2">
-    <div className="col-md-6">{left}</div>
-    <div className="col-md-6">{right}</div>
-  </div>
-);
+import Row from '../row'
 
 class ErrorBoundry extends Component {
   state = {

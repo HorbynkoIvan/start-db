@@ -4,7 +4,7 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import PeoplePage from '../people-page';
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
+import ItemDetails from '../item-details';
 import SwapiService from '../../services';
 
 class App extends Component {
@@ -37,7 +37,7 @@ class App extends Component {
             />
           </div>
           <div className="col-md-6">
-            <PersonDetails personId={selectedPerson} />
+            <ItemDetails personId={selectedPerson} />
           </div>
         </div>
 
@@ -50,7 +50,7 @@ class App extends Component {
             />
           </div>
           <div className="col-md-6">
-            <PersonDetails personId={selectedPerson} />
+            <ItemDetails personId={selectedPerson} />
           </div>
         </div>
       </div>

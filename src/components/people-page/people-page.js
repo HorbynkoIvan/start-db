@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './people-page.scss';
 import SwapiService from '../../services';
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
+import ItemDetails from '../item-details';
 import ErrorIndicator from '../error-indicator';
 
 const Row = ({ left, right }) => (
@@ -54,7 +54,7 @@ class PeoplePage extends Component {
       />
     );
 
-    const personalDetails = <PersonDetails personId={selectedPerson} />;
+    const personalDetails = <ItemDetails personId={selectedPerson} />;
 
     return (
       <ErrorBoundry>

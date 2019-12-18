@@ -6,6 +6,7 @@ import PeoplePage from '../people-page';
 import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import SwapiService from '../../services';
+import Row from '../row';
 
 class App extends Component {
   swapi = new SwapiService();
@@ -22,13 +23,34 @@ class App extends Component {
 
   render() {
     const { selectedPerson } = this.state;
+    const {
+      getPerson,
+      getStarShip,
+      getPersonImage,
+      getPlanetImage,
+      getStarShipImage,
+    } = this.swapi;
+    const personalDetails = (
+      <ItemDetails
+        itemId={11}
+        getData={getPerson}
+        getImageUrl={getPersonImage}
+      />
+    );
+    const starShipDetails = (
+      <ItemDetails
+        itemId={5}
+        getData={getStarShip}
+        getImageUrl={getStarShipImage}
+      />
+    );
+
     return (
       <div className="container">
         <Header />
-        {/*<RandomPlanet />
-        <PeoplePage />*/}
-
-
+        {/* <RandomPlanet />
+        <PeoplePage /> */}
+        <Row left={starShipDetails} right={personalDetails} />
       </div>
     );
   }

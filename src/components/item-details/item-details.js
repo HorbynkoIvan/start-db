@@ -5,7 +5,8 @@ import SwapiService from '../../services';
 class ItemDetails extends Component {
   swapi = new SwapiService();
 
-  state = { item: null };
+  state = { item: null,
+  image: null};
 
   componentDidMount() {
     this.updateItem();
@@ -18,20 +19,19 @@ class ItemDetails extends Component {
   }
 
   updateItem = () => {
-    const { itemId } = this.props;
+    const { itemId, getData, getImageUrl } = this.props;
     if (!itemId) return;
-
-    this.swapi.getItem(itemId).then(item => this.setState({ item }));
+    getData(itemId).then(item => this.setState({ item, image: getImageUrl(itemId) }));
   };
 
   render() {
-    const { item } = this.state;
+    const { item, image } = this.state;
     if (!item) return <span>Select a item from the list</span>;
     const { id, name, gender, birthYear, eyeColor } = item;
     return (
       <div className="item-details card p-3 d-flex">
         <img
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+          src={image}
           className="item-image card-img-left rounded mr-2"
           alt="..."
         />

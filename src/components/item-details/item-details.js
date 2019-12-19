@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import './item-details.scss';
 import SwapiService from '../../services';
 
+export const Record = ({ item, field, label }) => (
+  <li className="list-group-item">
+    <span className="term">{label}</span>
+    <span>{field}</span>
+    {/* <span>{item[field]}</span> */}
+  </li>
+);
+
 class ItemDetails extends Component {
   swapi = new SwapiService();
 
-  state = { item: null,
-  image: null};
+  state = { item: null, image: null };
 
   componentDidMount() {
     this.updateItem();
@@ -21,13 +28,17 @@ class ItemDetails extends Component {
   updateItem = () => {
     const { itemId, getData, getImageUrl } = this.props;
     if (!itemId) return;
-    getData(itemId).then(item => this.setState({ item, image: getImageUrl(itemId) }));
+    getData(itemId).then(item =>
+      this.setState({ item, image: getImageUrl(itemId) })
+    );
   };
 
   render() {
     const { item, image } = this.state;
     if (!item) return <span>Select a item from the list</span>;
     const { id, name, gender, birthYear, eyeColor } = item;
+    // console.log("item", item)
+    // console.log("image", image)
     return (
       <div className="item-details card p-3 d-flex">
         <img
@@ -38,18 +49,9 @@ class ItemDetails extends Component {
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              <span className="term">Gender</span>
-              <span>{gender}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Birth Year</span>
-              <span>{birthYear}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Eye color</span>
-              <span>{eyeColor}</span>
-            </li>
+            {React.Children.map(this.props.children, (child, i) => (
+              <li>{i}</li>
+            ))}
           </ul>
         </div>
       </div>

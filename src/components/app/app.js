@@ -7,6 +7,7 @@ import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import SwapiService from '../../services';
 import Row from '../row';
+import { Record } from '../item-details/item-details';
 
 class App extends Component {
   swapi = new SwapiService();
@@ -30,13 +31,14 @@ class App extends Component {
       getPlanetImage,
       getStarShipImage,
     } = this.swapi;
+
     const personalDetails = (
-      <ItemDetails
-        itemId={11}
-        getData={getPerson}
-        getImageUrl={getPersonImage}
-      />
+      <ItemDetails itemId={11} getData={getPerson} getImageUrl={getPersonImage}>
+        <Record field="eyeColor" label="EyeColor" />
+        <Record field="gender" label="Gender" />
+      </ItemDetails>
     );
+
     const starShipDetails = (
       <ItemDetails
         itemId={5}

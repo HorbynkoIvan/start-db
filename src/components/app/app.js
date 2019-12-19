@@ -44,7 +44,11 @@ class App extends Component {
         itemId={5}
         getData={getStarShip}
         getImageUrl={getStarShipImage}
-      />
+      >
+        <Record field="model" label="Model" />
+        <Record field="length" label="Length" />
+        <Record field="costInCredits" label="Cost" />
+      </ItemDetails>
     );
 
     return (
@@ -52,7 +56,7 @@ class App extends Component {
         <Header />
         {/* <RandomPlanet />
         <PeoplePage /> */}
-        <Row left={starShipDetails} right={personalDetails} />
+        <Row left={personalDetails} right={starShipDetails} />
       </div>
     );
   }

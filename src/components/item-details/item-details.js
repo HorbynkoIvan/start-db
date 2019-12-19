@@ -37,8 +37,6 @@ class ItemDetails extends Component {
     const { item, image } = this.state;
     if (!item) return <span>Select a item from the list</span>;
     const { id, name, gender, birthYear, eyeColor } = item;
-    // console.log("item", item)
-    // console.log("image", image)
     return (
       <div className="item-details card p-3 d-flex">
         <img
@@ -49,9 +47,9 @@ class ItemDetails extends Component {
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
           <ul className="list-group list-group-flush">
-            {React.Children.map(this.props.children, (child, i) => (
-              <li>{i}</li>
-            ))}
+            {React.Children.map(this.props.children, (child, i) =>
+              React.cloneElement(child, { item })
+            )}
           </ul>
         </div>
       </div>

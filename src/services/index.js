@@ -43,13 +43,14 @@ export default class SwapiService {
     return this._transformStarship(starShip);
   };
 
-  getPlanetImage = ({ id }) => `${this._imageBase}/planet/${id}.jpg`;
+  getPlanetImage = id => `${this._imageBase}/planets/${id}.jpg`;
 
-  getPersonImage = ({ id }) => {
-    console.log(id)
-    return `${this._imageBase}/characters/${id}.jpg`};
+  getPersonImage = id => {
+    console.log(id);
+    return `${this._imageBase}/characters/${id}.jpg`;
+  };
 
-  getStarShipImage = ({ id }) => `${this._imageBase}/starships/${id}.jpg`;
+  getStarShipImage = id => `${this._imageBase}/starships/${id}.jpg`;
 
   _extractId = item => {
     const idRegExp = /\/([0-9]*)\/$/;

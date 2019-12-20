@@ -1,5 +1,6 @@
 import React from 'react';
 import { ItemDetails, Record } from '../item-details';
+import { SwapiServiceConcumer } from '../swapi-service-context';
 import SwapiService from '../../services';
 
 const swapiService = new SwapiService();
@@ -14,28 +15,48 @@ const {
 } = swapiService;
 
 const PersonDetails = ({ itemId }) => (
-  <ItemDetails itemId={itemId} getData={getPerson} getImageUrl={getPersonImage}>
-    <Record field="eyeColor" label="EyeColor" />
-    <Record field="gender" label="Gender" />
-  </ItemDetails>
+  <SwapiServiceConcumer>
+    {({ getPerson, getPersonImage }) => (
+      <ItemDetails
+        itemId={itemId}
+        getData={getPerson}
+        getImageUrl={getPersonImage}
+      >
+        <Record field="eyeColor" label="EyeColor" />
+        <Record field="gender" label="Gender" />
+      </ItemDetails>
+    )}
+  </SwapiServiceConcumer>
 );
 const PlanetDetails = ({ itemId }) => (
-  <ItemDetails itemId={itemId} getData={getPlanet} getImageUrl={getPlanetImage}>
-    <Record field="population" label="Population" />
-    <Record field="rotationPeriod" label="Rotation Period" />
-    <Record field="diameter" label="Diameter" />
-  </ItemDetails>
+  <SwapiServiceConcumer>
+    {({ getPlanet, getPlanetImage }) => (
+      <ItemDetails
+        itemId={itemId}
+        getData={getPlanet}
+        getImageUrl={getPlanetImage}
+      >
+        <Record field="population" label="Population" />
+        <Record field="rotationPeriod" label="Rotation Period" />
+        <Record field="diameter" label="Diameter" />
+      </ItemDetails>
+    )}
+  </SwapiServiceConcumer>
 );
 const StarshipDetails = ({ itemId }) => (
-  <ItemDetails
-    itemId={itemId}
-    getData={getStarShip}
-    getImageUrl={getStarShipImage}
-  >
-    <Record field="model" label="Model" />
-    <Record field="length" label="Length" />
-    <Record field="costInCredits" label="Cost" />
-  </ItemDetails>
+  <SwapiServiceConcumer>
+    {({ getStarShip, getStarShipImage }) => (
+      <ItemDetails
+        itemId={itemId}
+        getData={getStarShip}
+        getImageUrl={getStarShipImage}
+      >
+        <Record field="model" label="Model" />
+        <Record field="length" label="Length" />
+        <Record field="costInCredits" label="Cost" />
+      </ItemDetails>
+    )}
+  </SwapiServiceConcumer>
 );
 
 export { PersonDetails, PlanetDetails, StarshipDetails };

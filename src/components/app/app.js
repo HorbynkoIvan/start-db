@@ -11,6 +11,7 @@ import {
   PlanetList,
   StarshipList,
 } from '../sw-components';
+import { SwapiServiceProvider } from '../swapi-service-context';
 
 class App extends Component {
   swapi = new SwapiService();
@@ -29,17 +30,19 @@ class App extends Component {
     return (
       <div className="container">
         <ErrorBoundry>
-          <div className="stardb-app">
-            <Header />
+          <SwapiServiceProvider value={this.swapi}>
+            <div className="stardb-app">
+              <Header />
 
-            <PersonDetails itemId={10} />
-            <PlanetDetails itemId={7} />
-            <StarshipDetails itemId={15} />
+              <PersonDetails itemId={10} />
+              <PlanetDetails itemId={7} />
+              <StarshipDetails itemId={15} />
 
-            <PersonList />
-            <PlanetList />
-            <StarshipList />
-          </div>
+              <PersonList />
+              <PlanetList />
+              <StarshipList />
+            </div>
+          </SwapiServiceProvider>
         </ErrorBoundry>
       </div>
     );

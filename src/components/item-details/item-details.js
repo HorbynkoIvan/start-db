@@ -36,7 +36,7 @@ class ItemDetails extends Component {
   render() {
     const { item, image } = this.state;
     if (!item) return <span>Select a item from the list</span>;
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name} = item;
     return (
       <div className="item-details card p-3 d-flex">
         <img

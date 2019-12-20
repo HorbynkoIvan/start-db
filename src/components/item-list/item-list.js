@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './item-list.css';
-import Spinner from '../spinner';
-import SwapiService from '../../services';
-import withData from "../hoc-helper/with-data";
 
 const ItemList = props => {
   const { data, onItemSelected, children: renderLabel } = props;
@@ -11,7 +8,7 @@ const ItemList = props => {
     const label = renderLabel(item);
     return (
       <li
-        className="list-group-item"
+        className="list-group-item list-group"
         key={id}
         onClick={() => onItemSelected(id)}
       >
@@ -23,6 +20,4 @@ const ItemList = props => {
   return <ul className="item-list list-group">{items}</ul>;
 };
 
-
-const { getAllPeople } = new SwapiService();
-export default withData(ItemList, getAllPeople);
+export default ItemList

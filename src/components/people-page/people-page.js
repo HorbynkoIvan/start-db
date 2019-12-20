@@ -4,24 +4,10 @@ import SwapiService from '../../services';
 import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import ErrorIndicator from '../error-indicator';
-import Row from '../row'
+import Row from '../row';
+import ErrorBoundry from "../error-boundry";
 
-class ErrorBoundry extends Component {
-  state = {
-    hasError: false,
-  };
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({
-      hasError: true,
-    });
-  }
-
-  render() {
-    if (this.state.hasError) return <ErrorIndicator />;
-    return this.props.children;
-  }
-}
 
 class PeoplePage extends Component {
   swapi = new SwapiService();

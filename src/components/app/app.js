@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
 import Header from '../header';
-import ItemDetails from '../item-details';
 import SwapiService from '../../services';
-import Row from '../row';
 import ErrorBoundry from '../error-boundry';
 import {
   PersonDetails,

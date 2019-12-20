@@ -20,4 +20,4 @@ const ItemList = props => {
   return <ul className="item-list list-group">{items}</ul>;
 };
 
-export default ItemList
+export default ItemList;

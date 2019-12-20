@@ -29,20 +29,21 @@ class App extends Component {
 
   render() {
     return (
-        <div className='container'>
-          <ErrorBoundry>
+      <div className="container">
+        <ErrorBoundry>
           <div className="stardb-app">
-            <Header/>
+            <Header />
 
-            <PersonDetails itemId={10}/>
-            <PlanetDetails itemId={7}/>
-            <StarshipDetails itemId={15}/>
+            <PersonDetails itemId={10} />
+            <PlanetDetails itemId={7} />
+            <StarshipDetails itemId={15} />
 
-            <PersonList>{({name}) => <span>{name}</span>}</PersonList>
-            <PlanetList>{({name}) => <span>{name}</span>}</PlanetList>
-            <StarshipList>{({name}) => <span>{name}</span>}</StarshipList>
+            <PersonList />
+            <PlanetList />
+            <StarshipList />
           </div>
-        </ErrorBoundry></div>
+        </ErrorBoundry>
+      </div>
     );
   }
 }

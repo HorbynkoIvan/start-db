@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Spinner from '../spinner';
-import { SwapiServiceConcumer } from '../swapi-service-context';
+import {SwapiServiceConcumer} from '../swapi-service-context';
 
-const withSwapiService = Wrapped => props => (
-  <SwapiServiceConcumer>
-    {swapiService => <Wrapped {...props} swapiService={swapiService} />}
-  </SwapiServiceConcumer>
+const withSwapiService = (Wrapped, mapMethodsToProps) => props => (
+    <SwapiServiceConcumer>
+        {swapiService => {
+            const serviceProps = mapMethodsToProps(swapiService)
+            return (<Wrapped {...props} {...serviceProps}/>)
+        }}
+    </SwapiServiceConcumer>
 );
 
 export default withSwapiService;

@@ -1,54 +1,64 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './random-planet.scss';
 import SwapiService from '../../services';
 import Spinner from '../spinner';
 import PlanetView from './planet-view';
 import ErrorIndicator from '../error-indicator';
 
-class RandomPlanet extends Component {
-  state = {
+const RandomPlanet = () => {
+  const [state, setState] = useState({
     planet: {},
     loading: true,
     error: false,
+  });
+  /* const [planet, setPlanet] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false); */
+  /* state = {
+    planet: {},
+    loading: true,
+    error: false,
+  }; */
+
+  const swapi = new SwapiService();
+  const onLoadPlanet = planet =>
+    setState(state => ({ ...state, planet, loading: false }));
+
+  const onError = err =>
+    setState(state => ({ ...state, error: true, loading: false }));
+  const updatePlanet = () => {
+    const id = Math.floor(Math.random() * 25) + 1;
+    swapi
+      .getPlanet(id)
+      .then(onLoadPlanet)
+      .catch(onError);
   };
 
-  swapi = new SwapiService();
+  useEffect(() => {
+    const interval = setInterval(updatePlanet, 10000);
+    return () => clearInterval(interval);
+  }, [updatePlanet]);
 
-  componentDidMount() {
+  /* componentDidMount() {
     this.updatePlanet()
     this.interval = setInterval(this.updatePlanet, 10000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
-  }
-
-  onLoadPlanet = planet => this.setState({ planet, loading: false });
-
-  onError = err => this.setState({ error: true, loading: false });
-
-  updatePlanet = () => {
-    const id = Math.floor(Math.random() * 25) + 1;
-    this.swapi
-      .getPlanet(id)
-      .then(this.onLoadPlanet)
-      .catch(this.onError);
-  };
-
-  render() {
-    const { planet, loading, error } = this.state;
-    const hasData = !(loading || error);
-    const errorMessage = error ? <ErrorIndicator /> : null;
-    const spinner = loading ? <Spinner /> : null;
-    const content = hasData ? <PlanetView planet={planet} /> : null;
-    return (
-      <div className="random-planet jumbotron rounded d-flex">
-        {errorMessage}
-        {spinner}
-        {content}
-      </div>
-    );
-  }
-}
+  } */
+  const { loading, error, planet } = state;
+  const hasData = !(loading || error);
+  const errorMessage = error ? <ErrorIndicator /> : null;
+  const spinner = loading ? <Spinner /> : null;
+  const content = hasData ? <PlanetView planet={planet} /> : null;
+  return (
+    <div className="random-planet jumbotron rounded d-flex">
+      {errorMessage}
+      {spinner}
+      {content}
+    </div>
+  );
+};
 
 export default RandomPlanet;

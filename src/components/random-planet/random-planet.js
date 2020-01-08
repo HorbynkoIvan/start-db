@@ -39,14 +39,6 @@ const RandomPlanet = () => {
     return () => clearInterval(interval);
   }, [updatePlanet]);
 
-  /* componentDidMount() {
-    this.updatePlanet()
-    this.interval = setInterval(this.updatePlanet, 10000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  } */
   const { loading, error, planet } = state;
   const hasData = !(loading || error);
   const errorMessage = error ? <ErrorIndicator /> : null;

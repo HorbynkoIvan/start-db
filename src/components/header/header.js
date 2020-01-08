@@ -1,28 +1,29 @@
 import React from 'react';
 import './header.scss';
+import {Link} from 'react-router-dom';
 
 function Header() {
   return (
     <div className="navbar navbar-expand-lg navbar-dark">
-      <a className="navbar-brand logo" href="#">
+      <Link className="navbar-brand logo" to="/">
         Star DB
-      </a>
+      </Link>
       <div className="collapse navbar-collapse justify-content-center">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/people">
               People
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/planets">
               Planets
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/starships">
               Starships
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

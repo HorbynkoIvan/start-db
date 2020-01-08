@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './app.css';
 import Header from '../header';
 import SwapiService from '../../services';
@@ -14,13 +15,16 @@ const App = () => {
     <div className="container">
       <ErrorBoundry>
         <SwapiServiceProvider value={swapi}>
-          <div className="stardb-app">
-            <Header />
-            <RandomPlanet />
-            <PeoplePage />
-            <PlanetsPage />
-            <StarshipsPage />
-          </div>
+          <Router>
+            <div className="stardb-app">
+              <Header />
+              <RandomPlanet />
+
+              <Route path="/people" component={PeoplePage} />
+              <Route path="/planets" component={PlanetsPage} />
+              <Route path="/starships" component={StarshipsPage} />
+            </div>
+          </Router>
         </SwapiServiceProvider>
       </ErrorBoundry>
     </div>

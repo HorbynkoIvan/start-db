@@ -11,17 +11,17 @@ function Header() {
       <div className="collapse navbar-collapse justify-content-center">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/people">
+            <Link className="nav-link" to="/people/">
               People
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/planets">
+            <Link className="nav-link" to="/planets/">
               Planets
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/starships">
+            <Link className="nav-link" to="/starships/">
               Starships
             </Link>
           </li>

@@ -13,8 +13,8 @@ export default class PlanetsPage extends Component {
     const { selectedItem } = this.state;
     return (
       <Row
-        left={<PlanetDetails itemId={selectedItem} />}
-        right={<PlanetList onItemSelected={this.onItemSelected} />}
+        left={<PlanetList onItemSelected={this.onItemSelected} />}
+        right={<PlanetDetails itemId={selectedItem} />}
       />
     );
   }

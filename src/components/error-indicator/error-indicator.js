@@ -1,13 +1,12 @@
 import React from 'react';
 import './error-indicator.scss';
 import deathStar from './death-star.png';
-import deathStar2 from './death-star2.png';
 
 function ErrorIndicator() {
   return (
     <div className="error-indicator">
       <div>
-        <img src={deathStar2} alt="deathStar" />
+        <img src={deathStar} alt="deathStar" />
       </div>
       <div className="error-text_block">
         <h2>Boom</h2>

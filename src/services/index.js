@@ -85,5 +85,3 @@ export default class SwapiService {
     eyeColor: person.eye_color,
   });
 }
-
-const swapi = new SwapiService();

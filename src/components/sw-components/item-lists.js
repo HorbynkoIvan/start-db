@@ -20,7 +20,7 @@ const mapStarshipMethodsToProps = swapiService => ({
 });
 
 const renderName = ({ name }) => <span>{name}</span>;
-const renderModelAndName = ({ name, model }) => <span>{(name, model)}</span>;
+//const renderModelAndName = ({ name, model }) => <span>{(name, model)}</span>;
 
 export const PersonList = compose(
   withSwapiService(mapPersonMethodsToProps),

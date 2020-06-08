@@ -1,0 +1,15 @@
+.item-list{
+  .list-group-item {
+    cursor: pointer;
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.7;
+
+      span {
+        color: #1de9b6;
+      }
+
+    }
+   }
+}

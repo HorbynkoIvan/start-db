@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './app.scss';
 import Header from '../header';
@@ -18,6 +18,7 @@ import StarshipDetails from '../sw-components/starship-details';
 
 const App = () => {
   const swapi = new SwapiService();
+  const [isLoggedIn, setLogIn] = useState(false);
   return (
     <div className="container">
       <ErrorBoundry>
@@ -31,8 +32,21 @@ const App = () => {
               <Route path="/people/:id?" component={PeoplePage} />
               <Route path="/planets" component={PlanetsPage} />
               <Route path="/starships" exact component={StarshipsPage} />
-              <Route path="/login" component={LoginPage} />
-              <Route path="/secret" component={SecretPage} />
+              <Route
+                path="/login"
+                render={() => (
+                  <LoginPage
+                    isLoggedIn={isLoggedIn}
+                    onLogin={() => {
+                      setLogIn(true);
+                    }}
+                  />
+                )}
+              />
+              <Route
+                path="/secret"
+                render={() => <SecretPage isLoggedIn={isLoggedIn} />}
+              />
               <Route
                 path="/starships/:id"
                 render={({ match }) => {

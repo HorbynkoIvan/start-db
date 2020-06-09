@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './app.css';
+import './app.scss';
 import Header from '../header';
 import SwapiService from '../../services';
 import ErrorBoundry from '../error-boundry';

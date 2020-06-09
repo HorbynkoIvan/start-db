@@ -8,7 +8,7 @@ const SecretPage = ({ isLoggedIn }) => {
       </div>
     );
   }
-  return <div>You should log in</div>;
+  return <h3 className='text-center'>You should log in</h3>;
 };
 
 export default SecretPage;

@@ -7,7 +7,13 @@ import ErrorBoundry from '../error-boundry';
 
 import { SwapiServiceProvider } from '../swapi-service-context';
 import RandomPlanet from '../random-planet';
-import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
+import {
+  PeoplePage,
+  PlanetsPage,
+  StarshipsPage,
+  SecretPage,
+  LoginPage,
+} from '../pages';
 import StarshipDetails from '../sw-components/starship-details';
 
 const App = () => {
@@ -25,6 +31,8 @@ const App = () => {
               <Route path="/people/:id?" component={PeoplePage} />
               <Route path="/planets" component={PlanetsPage} />
               <Route path="/starships" exact component={StarshipsPage} />
+              <Route path="/login" component={LoginPage} />
+              <Route path="/secret" component={SecretPage} />
               <Route
                 path="/starships/:id"
                 render={({ match }) => {

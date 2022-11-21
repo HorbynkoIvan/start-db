@@ -3,9 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { PersonDetails, PersonList } from "../sw-components";
 import Row from "../row";
 
-const PeoplePage = () => {
+export const PeoplePage = () => {
   const history = useNavigate();
   const { id: itemId } = useParams();
+
   return (
     <Row
       left={
@@ -19,5 +20,3 @@ const PeoplePage = () => {
     />
   );
 };
-
-export default PeoplePage;

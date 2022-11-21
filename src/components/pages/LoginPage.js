@@ -1,8 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const LoginPage = ({ isLoggedIn, onLogin }) => {
+export const LoginPage = ({ isLoggedIn, onLogin }) => {
   if (isLoggedIn) return <Navigate to="/secret/" />;
+
   return (
     <div className="jumbotron">
       <h3 className="text-center">Please, log in to see secret page!</h3>
@@ -12,5 +13,3 @@ const LoginPage = ({ isLoggedIn, onLogin }) => {
     </div>
   );
 };
-
-export default LoginPage;

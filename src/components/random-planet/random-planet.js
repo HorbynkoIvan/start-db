@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./random-planet.scss";
 import SwapiService from "../../services";
-import Spinner from "../spinner";
+import { Spinner } from "../spinner";
 import PlanetView from "./planet-view";
 import ErrorIndicator from "../error-indicator";
 
@@ -11,19 +11,11 @@ const RandomPlanet = () => {
     loading: true,
     error: false,
   });
-  /* const [planet, setPlanet] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false); */
-  /* state = {
-    planet: {},
-    loading: true,
-    error: false,
-  }; */
 
   const swapi = new SwapiService();
   const onLoadPlanet = (planet) => setState((state) => ({ ...state, planet, loading: false }));
 
-  const onError = (err) => setState((state) => ({ ...state, error: true, loading: false }));
+  const onError = () => setState((state) => ({ ...state, error: true, loading: false }));
   const updatePlanet = () => {
     const id = Math.floor(Math.random() * 25) + 1;
     swapi.getPlanet(id).then(onLoadPlanet).catch(onError);

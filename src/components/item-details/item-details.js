@@ -6,7 +6,7 @@ export const Record = ({ item, field, label }) => (
   <li className="list-group-item">
     <span className="term">{label}</span>
     <span>{field}</span>
-    {/* <span>{item[field]}</span> */}
+    <span>{item[field]}</span>
   </li>
 );
 

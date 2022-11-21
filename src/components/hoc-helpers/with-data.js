@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Spinner from '../spinner';
-import ErrorIndicator from '../error-indicator';
+import React, { Component } from "react";
+import Spinner from "../spinner";
+import ErrorIndicator from "../error-indicator";
 
-const withData = View =>
+const withData = (View) =>
   class extends Component {
     state = {
       data: null,
@@ -21,7 +21,7 @@ const withData = View =>
       });
       this.props
         .getData()
-        .then(data => this.setState({ data, loading: false }))
+        .then((data) => this.setState({ data, loading: false }))
         .catch(() => {
           this.setState({ error: true, loading: false });
         });

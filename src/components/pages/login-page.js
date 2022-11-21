@@ -1,8 +1,8 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 const LoginPage = ({ isLoggedIn, onLogin }) => {
-  if (isLoggedIn) return <Redirect to="/secret/" />;
+  if (isLoggedIn) return <Navigate to="/secret/" />;
   return (
     <div className="jumbotron">
       <h3 className="text-center">Please, log in to see secret page!</h3>

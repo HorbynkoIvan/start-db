@@ -1,8 +1,8 @@
-import React from 'react';
-import './random-planet.scss';
+import React from "react";
+import "./random-planet.scss";
 
-function PlanetView({planet}) {
-  const {id, name, population, rotationPeriod, diameter} = planet;
+function PlanetView({ planet }) {
+  const { id, name, population, rotationPeriod, diameter } = planet;
   return (
     <>
       <img

@@ -1,4 +1,3 @@
-import ItemDetails from './item-details';
-import {Record} from './item-details';
+import ItemDetails, { Record } from "./item-details";
 
-export {ItemDetails, Record};
+export { ItemDetails, Record };

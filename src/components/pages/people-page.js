@@ -1,16 +1,16 @@
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { PersonDetails, PersonList } from '../sw-components';
-import Row from '../row';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { PersonDetails, PersonList } from "../sw-components";
+import Row from "../row";
 
 const PeoplePage = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const { id: itemId } = useParams();
   return (
     <Row
       left={
         <PersonList
-          onItemSelected={id => {
+          onItemSelected={(id) => {
             history.push(id);
           }}
         />

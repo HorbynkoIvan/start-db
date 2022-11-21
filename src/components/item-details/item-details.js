@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './item-details.scss';
-import SwapiService from '../../services';
+import React, { Component } from "react";
+import "./item-details.scss";
+import SwapiService from "../../services";
 
 export const Record = ({ item, field, label }) => (
   <li className="list-group-item">
@@ -28,22 +28,16 @@ class ItemDetails extends Component {
   updateItem = () => {
     const { itemId, getData, getImageUrl } = this.props;
     if (!itemId) return;
-    getData(itemId).then(item =>
-      this.setState({ item, image: getImageUrl(itemId) })
-    );
+    getData(itemId).then((item) => this.setState({ item, image: getImageUrl(itemId) }));
   };
 
   render() {
     const { item, image } = this.state;
     if (!item) return <span>Select a item from the list</span>;
-    const { name} = item;
+    const { name } = item;
     return (
       <div className="item-details card p-3 d-flex">
-        <img
-          src={image}
-          className="item-image card-img-left rounded mr-2"
-          alt="..."
-        />
+        <img src={image} className="item-image card-img-left rounded mr-2" alt="..." />
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
           <ul className="list-group list-group-flush">

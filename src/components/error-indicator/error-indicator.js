@@ -1,6 +1,6 @@
-import React from 'react';
-import './error-indicator.scss';
-import deathStar from './death-star.png';
+import React from "react";
+import "./error-indicator.scss";
+import deathStar from "./death-star.png";
 
 function ErrorIndicator() {
   return (

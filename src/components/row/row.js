@@ -1,6 +1,6 @@
-import React from 'react';
-import './row.scss';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./row.scss";
+import PropTypes from "prop-types";
 
 const Row = ({ left, right }) => (
   <div className="row mb-2">

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 const SecretPage = ({ isLoggedIn }) => {
   if (isLoggedIn) {
@@ -9,7 +9,7 @@ const SecretPage = ({ isLoggedIn }) => {
       </div>
     );
   }
-  return <Redirect to="/login/" />;
+  return <Navigate to="/login/" />;
 };
 
 export default SecretPage;

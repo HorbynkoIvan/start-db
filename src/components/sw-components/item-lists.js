@@ -1,21 +1,16 @@
-import React from 'react';
-import ItemList from '../item-list/item-list';
-import {
-  withData,
-  withSwapiService,
-  withChildFunction,
-  compose,
-} from '../hoc-helpers';
+import React from "react";
+import ItemList from "../item-list/item-list";
+import { withData, withSwapiService, withChildFunction, compose } from "../hoc-helpers";
 
-const mapPersonMethodsToProps = swapiService => ({
+const mapPersonMethodsToProps = (swapiService) => ({
   getData: swapiService.getAllPeople,
 });
 
-const mapPlanetMethodsToProps = swapiService => ({
+const mapPlanetMethodsToProps = (swapiService) => ({
   getData: swapiService.getAllPlanets,
 });
 
-const mapStarshipMethodsToProps = swapiService => ({
+const mapStarshipMethodsToProps = (swapiService) => ({
   getData: swapiService.getAllStarShips,
 });
 

@@ -1,63 +1,61 @@
 export default class SwapiService {
-  _apiBase = 'https://swapi.dev/api';
+  _apiBase = "https://swapi.dev/api";
 
-  _imageBase = 'https://starwars-visualguide.com/assets/img';
+  _imageBase = "https://starwars-visualguide.com/assets/img";
 
-  getResource = async url => {
+  getResource = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
     if (!res.ok) {
-      throw new Error(
-        `Could not fetch ${this._apiBase}${url}, received ${res.status}`
-      );
+      throw new Error(`Could not fetch ${this._apiBase}${url}, received ${res.status}`);
     }
     return res.json();
   };
 
   getAllPeople = async () => {
-    const res = await this.getResource('/people/');
+    const res = await this.getResource("/people/");
     return res.results.map(this._transformPerson);
   };
 
-  getPerson = async id => {
+  getPerson = async (id) => {
     const person = await this.getResource(`/people/${id}/`);
     return this._transformPerson(person);
   };
 
   getAllPlanets = async () => {
-    const res = await this.getResource('/planets/');
+    const res = await this.getResource("/planets/");
     return res.results.map(this._transformPlanet);
   };
 
-  getPlanet = async id => {
+  getPlanet = async (id) => {
     const planet = await this.getResource(`/planets/${id}/`);
     return this._transformPlanet(planet);
   };
 
   getAllStarShips = async () => {
-    const res = await this.getResource('/starships/');
+    const res = await this.getResource("/starships/");
     return res.results.map(this._transformStarship);
   };
 
-  getStarShip = async id => {
+  getStarShip = async (id) => {
     const starShip = await this.getResource(`/starships/${id}/`);
     return this._transformStarship(starShip);
   };
 
-  getPlanetImage = id => `${this._imageBase}/planets/${id}.jpg`;
+  getPlanetImage = (id) => `${this._imageBase}/planets/${id}.jpg`;
 
-  getPersonImage = id => {
+  getPersonImage = (id) => {
     console.log(id);
     return `${this._imageBase}/characters/${id}.jpg`;
   };
 
-  getStarShipImage = id => `${this._imageBase}/starships/${id}.jpg`;
+  getStarShipImage = (id) => `${this._imageBase}/starships/${id}.jpg`;
 
-  _extractId = item => {
+  _extractId = (item) => {
     const idRegExp = /\/([0-9]*)\/$/;
     return item.url.match(idRegExp)[1];
   };
 
-  _transformPlanet = planet => ({
+  _transformPlanet = (planet) => ({
     id: this._extractId(planet),
     name: planet.name,
     population: planet.population,
@@ -65,7 +63,7 @@ export default class SwapiService {
     diameter: planet.diameter,
   });
 
-  _transformStarship = starShip => ({
+  _transformStarship = (starShip) => ({
     id: this._extractId(starShip),
     name: starShip.name,
     model: starShip.model,
@@ -77,7 +75,7 @@ export default class SwapiService {
     cargoCapacity: starShip.cargoCapacity,
   });
 
-  _transformPerson = person => ({
+  _transformPerson = (person) => ({
     id: this._extractId(person),
     name: person.name,
     gender: person.gender,

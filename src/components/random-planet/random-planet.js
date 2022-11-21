@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './random-planet.scss';
-import SwapiService from '../../services';
-import Spinner from '../spinner';
-import PlanetView from './planet-view';
-import ErrorIndicator from '../error-indicator';
+import React, { useState, useEffect } from "react";
+import "./random-planet.scss";
+import SwapiService from "../../services";
+import Spinner from "../spinner";
+import PlanetView from "./planet-view";
+import ErrorIndicator from "../error-indicator";
 
 const RandomPlanet = () => {
   const [state, setState] = useState({
@@ -21,17 +21,12 @@ const RandomPlanet = () => {
   }; */
 
   const swapi = new SwapiService();
-  const onLoadPlanet = planet =>
-    setState(state => ({ ...state, planet, loading: false }));
+  const onLoadPlanet = (planet) => setState((state) => ({ ...state, planet, loading: false }));
 
-  const onError = err =>
-    setState(state => ({ ...state, error: true, loading: false }));
+  const onError = (err) => setState((state) => ({ ...state, error: true, loading: false }));
   const updatePlanet = () => {
     const id = Math.floor(Math.random() * 25) + 1;
-    swapi
-      .getPlanet(id)
-      .then(onLoadPlanet)
-      .catch(onError);
+    swapi.getPlanet(id).then(onLoadPlanet).catch(onError);
   };
 
   useEffect(() => {

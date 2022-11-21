@@ -1,6 +1,4 @@
-import React from 'react';
+import React from "react";
 
-const withChildFunction = fn => Wrapped => props => (
-  <Wrapped {...props}>{fn}</Wrapped>
-);
+const withChildFunction = (fn) => (Wrapped) => (props) => <Wrapped {...props}>{fn}</Wrapped>;
 export default withChildFunction;

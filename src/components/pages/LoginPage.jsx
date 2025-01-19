@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 
 export const LoginPage = ({ isLoggedIn, onLogin }) => {
   if (isLoggedIn) return <Navigate to="/secret/" />;

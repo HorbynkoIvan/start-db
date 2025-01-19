@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PlanetDetails, PlanetList } from "../sw-components";
-import Row from "../row";
+import { PlanetDetails, PlanetList } from "@components/sw-components";
+import Row from "@components/row";
 
 export const PlanetsPage = () => {
   const [selectedItem, setSelectedItem] = useState(null);

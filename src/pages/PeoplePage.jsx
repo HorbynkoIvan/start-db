@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router";
-import { PersonDetails, PersonList } from "../sw-components";
-import Row from "../row";
+import { PersonDetails, PersonList } from "@components/sw-components";
+import Row from "@components/row";
 
 export const PeoplePage = () => {
   const history = useNavigate();

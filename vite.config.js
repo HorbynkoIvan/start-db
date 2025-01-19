@@ -11,6 +11,7 @@ export default defineConfig({
       "@helpers": path.resolve(__dirname, "./src/helpers"),
       "@scss": path.resolve(__dirname, "./src/scss"),
       "@redux": path.resolve(__dirname, "./src/redux"),
+      "@theme": path.resolve(__dirname, "./src/theme"),
     },
   },
   server: {

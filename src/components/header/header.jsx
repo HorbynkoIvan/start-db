@@ -1,39 +1,39 @@
 import React from "react";
 import "./header.scss";
-import { Link } from "react-router";
+import {NavLink } from "react-router";
 
 function Header() {
   return (
     <div className="navbar navbar-expand-lg navbar-dark">
-      <Link className="navbar-brand logo" to="/">
+      <NavLink className="navbar-brand logo" to="/">
         Star DB
-      </Link>
+      </NavLink>
       <div className="collapse navbar-collapse justify-content-center">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/people/">
+            <NavLink className="nav-link" to="/people/">
               People
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/planets/">
+            <NavLink className="nav-link" to="/planets/">
               Planets
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/starships/">
+            <NavLink className="nav-link" to="/starships/">
               Starships
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/login/">
+            <NavLink className="nav-link" to="/login/">
               Log in
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/secret/">
+            <NavLink className="nav-link" to="/secret/">
               Secret
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

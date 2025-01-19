@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SwapService from "./services";
-import ErrorBoundary from "./components/error-boundary";
+import { ErrorBoundaryWrapper } from "@components/error-boundary";
 import { SwapiServiceProvider } from "@components/swapi-service-context";
 import Header from "./components/header";
 import RandomPlanet from "./components/random-planet";
@@ -10,13 +10,13 @@ import "./scss/app.scss";
 import { BrowserRouter, Routes, Route } from "react-router";
 
 const App = () => {
-  const swapi = new SwapService();
+  const swap = new SwapService();
   const [isLoggedIn, setLogIn] = useState(false);
 
   return (
     <div className="container">
-      <ErrorBoundary>
-        <SwapiServiceProvider value={swapi}>
+      <ErrorBoundaryWrapper>
+        <SwapiServiceProvider value={swap}>
           <BrowserRouter>
             <div className="stardb-app">
               <Header />
@@ -46,7 +46,7 @@ const App = () => {
             </div>
           </BrowserRouter>
         </SwapiServiceProvider>
-      </ErrorBoundary>
+      </ErrorBoundaryWrapper>
     </div>
   );
 };

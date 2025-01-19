@@ -1,22 +1,27 @@
-import React, { Component } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import React from "react";
 import ErrorIndicator from "../error-indicator";
 
-class ErrorBoundary extends Component {
-  state = {
-    hasError: false,
+export const ErrorBoundaryWrapper = ({ children }) => {
+  const handleError = (error, errorInfo) => {
+    console.error("Error captured:", error, errorInfo);
+    // Do something with the error
+    // E.g. log to an error logging client here
   };
 
-  componentDidCatch(error, errorInfo) {
-    console.log(error, errorInfo);
-    this.setState({
-      hasError: true,
-    });
-  }
+  const fallbackRender = ({ error, resetErrorBoundary }) => (
+    <div>
+      <ErrorIndicator error={error} />
+      <button onClick={resetErrorBoundary}>Retry</button>
+    </div>
+  );
 
-  render() {
-    if (this.state.hasError) return <ErrorIndicator />;
-    return this.props.children;
-  }
-}
-
-export default ErrorBoundary;
+  return (
+    <ErrorBoundary
+      fallbackRender={fallbackRender}
+      onError={handleError}
+    >
+      {children}
+    </ErrorBoundary>
+  );
+};

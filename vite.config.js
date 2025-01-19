@@ -12,6 +12,7 @@ export default defineConfig({
       "@scss": path.resolve(__dirname, "./src/scss"),
       "@redux": path.resolve(__dirname, "./src/redux"),
       "@theme": path.resolve(__dirname, "./src/theme"),
+      "@routes": path.resolve(__dirname, "./src/routes"),
     },
   },
   server: {

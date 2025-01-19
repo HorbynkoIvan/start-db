@@ -1,35 +1,39 @@
 export const palette = {
   primary: {
-    main: "#0d47a1", // Jedi lightsaber blue
+    main: "#0d1b2a", // Deep space navy blue
     contrastText: "#ffffff", // White text for contrast
   },
   secondary: {
-    main: "#d32f2f", // Sith lightsaber red
-    contrastText: "#ffffff",
+    main: "#ffcc00", // Starburst yellow
+    contrastText: "#000000", // Black text for contrast
   },
   background: {
-    default: "#121212", // Deep space black
-    paper: "#1e1e1e", // Slightly lighter for cards or panels
+    default: "#0a0f1f", // Cosmic dark blue
+    paper: "#1b263b", // Nebula dark gray-blue for cards/panels
   },
   text: {
-    primary: "#ffffff", // Text in white to contrast with dark backgrounds
-    secondary: "#90caf9", // Subtle blue for secondary text
+    primary: "#e0e1dd", // Subtle light gray for readability
+    secondary: "#9db4c0", // Starry silver-gray for secondary text
   },
   warning: {
-    main: "#ffa000", // Tatooine desert orange
+    main: "#f39c12", // Sunset orange for warnings
   },
   info: {
-    main: "#64b5f6", // Holographic blue
+    main: "#3498db", // Galactic blue for informational elements
   },
   success: {
-    main: "#388e3c", // Yoda green
+    main: "#27ae60", // Forest green for success elements
   },
   error: {
-    main: "#d50000", // Red alert or danger color
+    main: "#e74c3c", // Mars red for errors
   },
   action: {
-    active: "#ffffff", // Active icons/buttons in white
-    hover: "#1e88e5", // Hover effect with blue
-    selected: "#4caf50", // Green to represent selection or positivity
+    active: "#e0e1dd", // Active icons/buttons in light gray
+    hover: "#ffcc00", // Highlight with starburst yellow
+    selected: "#3498db", // Galactic blue for selected state
+  },
+  stars: {
+    twinkle: "#f5f5f5", // Soft white for star effects
+    glow: "#fffae6", // Warm white-yellow for glowing effects
   },
 };

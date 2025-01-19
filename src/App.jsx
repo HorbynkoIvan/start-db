@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="container">
       <ErrorBoundaryWrapper>
-        <SwapiServiceProvider value={swap}>
+        <SwapiServiceProvider value={{  }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <BrowserRouter>

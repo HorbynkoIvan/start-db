@@ -1,7 +1,9 @@
+import { MainLayout } from "@/layout";
+
 export const routes = [
   {
     path: "/",
-    element: <h1>Layout</h1>,
+    element: <MainLayout/>,
     children: [
       { path: "/", element: <h1>Dashboard</h1> },
       {
@@ -27,6 +29,10 @@ export const routes = [
       {
         path: "vehicles",
         element: <h1>vehicles</h1>,
+      },
+      {
+        path: "*",
+        element: <h1>404 - Page Not Found</h1>,
       },
     ],
   },

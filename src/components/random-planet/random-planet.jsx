@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./random-planet.scss";
-import SwapiService from "../../services";
+import SwapiService from "../../services/swap-service";
 import { Spinner } from "../spinner";
 import PlanetView from "./planet-view";
 import ErrorIndicator from "../error-indicator";

@@ -1,4 +1,5 @@
 import { MainLayout } from "@/layout";
+import { FilmsPage } from "@/pages";
 
 export const routes = [
   {
@@ -8,7 +9,7 @@ export const routes = [
       { path: "/", element: <h1>Dashboard</h1> },
       {
         path: "films",
-        element: <h1>films</h1>,
+        element: <FilmsPage/>,
       },
       {
         path: "people",

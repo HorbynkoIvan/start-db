@@ -2,7 +2,7 @@ import React from "react";
 import "./item-list.scss";
 import PropTypes from "prop-types";
 import withData from "../hoc-helpers/with-data";
-import SwapiService from "../../services";
+import SwapiService from "../../services/swap-service";
 
 const { getAllPeople } = new SwapiService();
 

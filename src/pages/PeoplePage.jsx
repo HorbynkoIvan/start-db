@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router";
-import { PersonDetails, PersonList } from "@components/sw-components";
+// import { PersonDetails, PersonList } from "@components/sw-components";
 import Row from "@components/row";
 
 export const PeoplePage = () => {
@@ -8,15 +8,16 @@ export const PeoplePage = () => {
   const { id: itemId } = useParams();
 
   return (
-    <Row
-      left={
-        <PersonList
-          onItemSelected={(id) => {
-            history.push(id);
-          }}
-        />
-      }
-      right={<PersonDetails itemId={itemId} />}
-    />
+    <div>1</div>
+    // <Row
+    //   left={
+    //     <PersonList
+    //       onItemSelected={(id) => {
+    //         history.push(id);
+    //       }}
+    //     />
+    //   }
+    //   right={<PersonDetails itemId={itemId} />}
+    // />
   );
 };

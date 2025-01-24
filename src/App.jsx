@@ -1,16 +1,15 @@
 import React from "react";
 import { ErrorBoundaryWrapper } from "@components/error-boundary";
-import { SwapiServiceProvider } from "@components/swapi-service-context";
 import { BrowserRouter } from "react-router";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import {theme} from "@theme";
 import {Router} from "@routes";
+import { SwapiServiceProvider } from "@/context";
 
 const App = () => {
   return (
-    <div className="container">
       <ErrorBoundaryWrapper>
-        <SwapiServiceProvider value={{  }}>
+        <SwapiServiceProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <BrowserRouter>
@@ -19,7 +18,6 @@ const App = () => {
           </ThemeProvider>
         </SwapiServiceProvider>
       </ErrorBoundaryWrapper>
-    </div>
   );
 };
 

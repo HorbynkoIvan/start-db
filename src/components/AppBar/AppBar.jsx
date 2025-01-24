@@ -8,6 +8,7 @@ import { NavLink } from "react-router";
 import React from "react";
 
 const navLinks = [
+  { name: "Films", route: "films" },
   { name: "People", route: "people" },
   { name: "Planets", route: "planets" },
   { name: "Species", route: "species" },
@@ -21,7 +22,7 @@ export const AppBar = () => {
   return (
     <AppBarMui
       sx={{
-        backgroundColor: theme.palette.primary.main, // Jedi blue
+        backgroundColor: theme.palette.primary.main,
         boxShadow: theme.shadows[4]
       }}>
       <Toolbar>
@@ -30,7 +31,7 @@ export const AppBar = () => {
           to="/"
           style={{
             textDecoration: "none",
-            color: theme.palette.secondary.main, // Starburst yellow for standout effect
+            color: theme.palette.secondary.main,
             fontWeight: "bold",
             fontSize: "2rem", // Larger size for emphasis
             fontFamily: "'DISTGRG_', Arial, sans-serif", // Custom font

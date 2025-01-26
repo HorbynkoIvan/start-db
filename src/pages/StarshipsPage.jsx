@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSwapi } from "@/context";
+import { useSwapiResource } from "@/hooks";
+import { Spinner } from "@components/Spinner";
 
 
 export const StarshipsPage = () => {
-  const [starships, setStarships] = useState([]);
   const swapi = useSwapi();
+  const { data: starships, loading, error } = useSwapiResource(swapi.getStarships);
 
-  useEffect(()=>{
-    swapi.getStarships().then((data)=>{setStarships(data.results)})
-      .catch((error) => console.error("Failed to load starships:", error));
-  }, [swapi]);
+  if (loading) return <Spinner />;
+  if (error) return <div>{error}</div>;
 
   return (
     <div>

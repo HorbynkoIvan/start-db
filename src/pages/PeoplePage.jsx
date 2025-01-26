@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSwapi } from "@/context";
+import { useSwapiResource } from "@/hooks";
+import { Spinner } from "@components/Spinner";
 
 export const PeoplePage = () => {
-  const [people, setPeople] = useState([]);
   const swapi = useSwapi();
+  const { data: people, loading, error } = useSwapiResource(swapi.getPeople);
 
-  useEffect( () => {
-    swapi.getPeople().then((data) => {
-      setPeople(data.results);
-    })
-      .catch((error) => console.error("Failed to load people:", error));
-  }, [swapi]);
+  if (loading) return <Spinner />;
+  if (error) return <div>{error}</div>;
 
   return (
     <ul>
-      {people.map((people) => (<li key={people.id}>{people.name}</li>))}
+      {people.map((people) => (<li key={people.name}>{people.name}</li>))}
     </ul>
   );
 };

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {useSwapi} from "@/context";
+import { useSwapiResource } from "@/hooks";
+import { Spinner } from "@components/Spinner";
 
 export const PlanetsPage = () => {
-  const [planets, setPlanets] = useState([]);
   const swapi = useSwapi();
+  const { data: planets, loading, error } = useSwapiResource(swapi.getPlanets);
 
-  useEffect(()=>{
-    swapi.getPlanets().then((data)=>{setPlanets(data.results)})
-      .catch((error) => console.error("Failed to load planets:", error));
-  }, [swapi]);
+  if (loading) return <Spinner />;
+  if (error) return <div>{error}</div>;
 
   return (
     <div>

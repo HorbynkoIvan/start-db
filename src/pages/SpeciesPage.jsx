@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSwapi } from "@/context";
+import { useSwapiResource } from "@/hooks";
+import { Spinner } from "@components/Spinner";
 
 export const SpeciesPage = () => {
-  const [species, setSpecies] = useState([]);
   const swapi = useSwapi();
+  const { data: species, loading, error } = useSwapiResource(swapi.getSpecies);
 
-  useEffect( () => {
-    swapi.getSpecies().then((data) => {
-      setSpecies(data.results);
-    })
-      .catch((error) => console.error("Failed to load species:", error));
-  }, [swapi]);
+  if (loading) return <Spinner />;
+  if (error) return <div>{error}</div>;
 
   return (
     <ul>

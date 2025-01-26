@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSwapi } from "@/context";
+import { useSwapiResource } from "@/hooks";
+import { Spinner } from "@components/Spinner";
 
 export const VehiclesPage = () => {
-  const [vehicles, setVehicles] = useState([]);
   const swapi = useSwapi();
+  const { data: vehicles, loading, error } = useSwapiResource(swapi.getVehicles);
 
-  useEffect( () => {
-    swapi.getVehicles().then((data) => {
-      setVehicles(data.results);
-    })
-      .catch((error) => console.error("Failed to load vehicles:", error));
-  }, [swapi]);
+  if (loading) return <Spinner />;
+  if (error) return <div>{error}</div>;
 
   return (
     <ul>

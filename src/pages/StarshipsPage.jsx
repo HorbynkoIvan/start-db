@@ -1,9 +1,21 @@
-import React from "react";
-import { useNavigate } from "react-router";
-// import { StarshipList } from "@components/sw-components";
+import React, { useEffect, useState } from "react";
+import { useSwapi } from "@/context";
+
 
 export const StarshipsPage = () => {
-  const history = useNavigate();
-return <div>3</div>
-  // return <StarshipList onItemSelected={(itemId) => history.push(itemId)} />;
+  const [starships, setStarships] = useState([]);
+  const swapi = useSwapi();
+
+  useEffect(()=>{
+    swapi.getStarships().then((data)=>{setStarships(data.results)})
+      .catch((error) => console.error("Failed to load starships:", error));
+  }, [swapi]);
+
+  return (
+    <div>
+      <ul>
+        {starships.map((starship)=>(<li key={starship.name}>{starship.name}</li>))}
+      </ul>
+    </div>
+  );
 };

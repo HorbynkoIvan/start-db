@@ -1,5 +1,5 @@
 import { MainLayout } from "@/layout";
-import { FilmsPage, PeoplePage, PlanetsPage } from "@/pages";
+import { FilmsPage, PeoplePage, PlanetsPage, SpeciesPage, StarshipsPage, VehiclesPage } from "@/pages";
 
 export const routes = [
   {
@@ -21,15 +21,15 @@ export const routes = [
       },
       {
         path: "species",
-        element: <h1>species</h1>,
+        element: <SpeciesPage/>,
       },
       {
         path: "starships",
-        element: <h1>starships</h1>,
+        element: <StarshipsPage/>,
       },
       {
         path: "vehicles",
-        element: <h1>vehicles</h1>,
+        element: <VehiclesPage/>,
       },
       {
         path: "*",

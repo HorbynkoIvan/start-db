@@ -1,23 +1,20 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router";
-// import { PersonDetails, PersonList } from "@components/sw-components";
-import Row from "@components/row";
+import React, { useEffect, useState } from "react";
+import { useSwapi } from "@/context";
 
 export const PeoplePage = () => {
-  const history = useNavigate();
-  const { id: itemId } = useParams();
+  const [people, setPeople] = useState([]);
+  const swapi = useSwapi();
+
+  useEffect( () => {
+    swapi.getPeople().then((data) => {
+      setPeople(data.results);
+    })
+      .catch((error) => console.error("Failed to load people:", error));
+  }, [swapi]);
 
   return (
-    <div>1</div>
-    // <Row
-    //   left={
-    //     <PersonList
-    //       onItemSelected={(id) => {
-    //         history.push(id);
-    //       }}
-    //     />
-    //   }
-    //   right={<PersonDetails itemId={itemId} />}
-    // />
+    <ul>
+      {people.map((people) => (<li key={people.id}>{people.name}</li>))}
+    </ul>
   );
 };

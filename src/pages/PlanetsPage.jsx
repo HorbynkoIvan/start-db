@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-// import { PlanetDetails, PlanetList } from "@components/sw-components";
-import Row from "@components/row";
+import React, { useEffect, useState } from "react";
+import {useSwapi} from "@/context";
 
 export const PlanetsPage = () => {
-  // const [selectedItem, setSelectedItem] = useState(null);
-  //
-  // const onItemSelected = (selectedItem) => {
-  //   setSelectedItem({ selectedItem });
-  // };
+  const [planets, setPlanets] = useState([]);
+  const swapi = useSwapi();
+
+  useEffect(()=>{
+    swapi.getPlanets().then((data)=>{setPlanets(data.results)})
+      .catch((error) => console.error("Failed to load planets:", error));
+  }, [swapi]);
 
   return (
-    <div>2</div>
-    // <Row
-    //   left={<PlanetList onItemSelected={onItemSelected} />}
-    //   right={<PlanetDetails itemId={selectedItem} />}
-    // />
+    <div>
+      <ul>
+        {planets.map((planet) => (<li key={planet.name}>{planet.name}</li>))}
+      </ul>
+    </div>
   );
 };

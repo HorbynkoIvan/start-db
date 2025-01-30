@@ -10,6 +10,7 @@ export const VehiclesPage = () => {
   if (loading) return <Spinner />;
   if (error) return <div>{error}</div>;
 
+  console.log(vehicles);
   return (
     <ul>
       {vehicles.map((vehicle) => (<li key={vehicle.name}>{vehicle.name}</li>))}

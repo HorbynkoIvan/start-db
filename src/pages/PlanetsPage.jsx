@@ -3,6 +3,7 @@ import {useSwapi} from "@/context";
 import { useSwapiResource } from "@/hooks";
 import { Spinner } from "@components/Spinner";
 
+// no id
 export const PlanetsPage = () => {
   const swapi = useSwapi();
   const { data: planets, loading, error } = useSwapiResource(swapi.getPlanets);
@@ -10,6 +11,7 @@ export const PlanetsPage = () => {
   if (loading) return <Spinner />;
   if (error) return <div>{error}</div>;
 
+  console.log(planets);
   return (
     <div>
       <ul>

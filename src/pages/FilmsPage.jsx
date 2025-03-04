@@ -11,7 +11,7 @@ export const FilmsPage = () => {
 
   if (loading) return <Spinner />;
   if (error) return <div>{error}</div>;
-  console.log(films);
+  console.log("films" + films);
   return (
     <div>
       <ul>

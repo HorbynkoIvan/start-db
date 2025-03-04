@@ -1,14 +1,15 @@
+const BASE_URL="https://sw-api.starnavi.io/"
+// const BASE_URL="https://swapi.dev/api/"
+const BASE_IMAGES = "https://starwars-visualguide.com/assets/img";
+
 export class SwapiService {
-  constructor(baseURL = "https://swapi.dev/api/") {
+  constructor(baseURL = BASE_URL) {
     this.baseURL = baseURL;
   }
 
-  // _apiBase = "https://swapi.dev/api";
-
-  // _imageBase = "https://starwars-visualguide.com/assets/img";
-
   fetchResource = async (endpoint) => {
     const response = await fetch(`${this.baseURL}${endpoint}`);
+    console.log(response);
     try {
       if (!response.ok) {
         throw new Error(`Could not fetch ${endpoint}, received ${response.status}`);

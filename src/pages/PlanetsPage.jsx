@@ -17,6 +17,7 @@ export const PlanetsPage = () => {
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px", padding: "20px" }}>
       {planets.map((planet) => {
         const id = planet.url.match(/\/planets\/(\d+)\//)[1]; // Extract ID from URL
+        console.log(id);
         return (
           <Card key={id} sx={{ backgroundColor: "#1e1e1e", color: "#ffffff" }}>
             <CardMedia

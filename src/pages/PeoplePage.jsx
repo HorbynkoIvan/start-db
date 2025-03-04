@@ -4,6 +4,7 @@ import { useSwapiResource } from "@/hooks";
 import { Spinner } from "@components/Spinner";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
+// TODO find solutions how get images - https://starwars-visualguide.com doesnt work
 // no id
 export const PeoplePage = () => {
   const swapi = useSwapi();

@@ -1,6 +1,6 @@
 import { ErrorBoundary } from "react-error-boundary";
 import React from "react";
-import ErrorIndicator from "../error-indicator";
+import ErrorIndicator from "../ErrorIndicator";
 
 export const ErrorBoundaryWrapper = ({ children }) => {
   const handleError = (error, errorInfo) => {

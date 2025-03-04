@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorBoundaryWrapper } from "@components/error-boundary";
+import { ErrorBoundaryWrapper } from "@components/ErrorBoundary";
 import { BrowserRouter } from "react-router";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import {theme} from "@theme";

@@ -3,15 +3,18 @@ import { useSwapi } from "@/context";
 import { Spinner } from "@components/Spinner";
 import { useSwapiResource } from "@/hooks";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import ErrorIndicator from "@components/ErrorIndicator";
 
 // episode_id
 export const FilmsPage = () => {
   const swapi = useSwapi();
   const { data: films, loading, error } = useSwapiResource(swapi.getFilms);
-
+  console.log("error" + error);
   if (loading) return <Spinner />;
-  if (error) return <div>{error}</div>;
+  // if (error) return <div>asasvasvasvasvasvasasvas{error}</div>;
+  if (error) return <ErrorIndicator error={error} />
   console.log("films" + films);
+  console.log("error" + error);
   return (
     <div>
       <ul>

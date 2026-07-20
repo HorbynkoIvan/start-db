@@ -20,6 +20,7 @@ export const ErrorBoundaryWrapper = ({ children }) => {
     <ErrorBoundary
       fallbackRender={fallbackRender}
       onError={handleError}
+      fallback={<div>ErrorBoundary</div>}
     >
       {children}
     </ErrorBoundary>

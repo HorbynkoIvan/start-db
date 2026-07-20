@@ -1,6 +1,7 @@
-const BASE_URL="https://sw-api.starnavi.io/"
+// const BASE_URL="https://sw-api.starnavi.io/"
+const BASE_URL="https://swapi.info/api/"
 // const BASE_URL="https://swapi.dev/api/"
-const BASE_IMAGES = "https://starwars-visualguide.com/assets/img";
+//const BASE_IMAGES = "https://starwars-visualguide.com/assets/img";
 
 export class SwapiService {
   constructor(baseURL = BASE_URL) {
